@@ -1,6 +1,4 @@
 package juego;
-
-
 import entorno.Entorno;
 import entorno.InterfaceJuego;
 
@@ -8,6 +6,10 @@ public class Juego extends InterfaceJuego
 {
 	// El objeto Entorno que controla el tiempo y otros
 	private Entorno entorno;
+	private Tablero tablero;
+	private Personaje personaje;
+//	private Enemigo enemigo;
+//	private Personaje personaje;
 	
 	// Variables y métodos propios de cada grupo
 	// ...
@@ -15,10 +17,11 @@ public class Juego extends InterfaceJuego
 	Juego()
 	{
 		// Inicializa el objeto entorno
-		this.entorno = new Entorno(this, "Attack on Titan, Final Season - Grupo ... - v1", 800, 600);
-		
+		this.entorno = new Entorno(this, "Plantas Invasoras - Grupo 1", 885, 760);
 		// Inicializar lo que haga falta para el juego
 		// ...
+		tablero = new Tablero(0,0,0,4);
+		personaje= new Personaje(15,15, 10, 10, 3);
 
 		// Inicia el juego!
 		this.entorno.iniciar();
@@ -34,6 +37,12 @@ public class Juego extends InterfaceJuego
 	{
 		// Procesamiento de un instante de tiempo
 		// ...
+		tablero.dibujar(entorno);
+		personaje.dibujar(entorno);
+		personaje.moverDerecha(entorno);
+		personaje.moverAbajo(entorno);
+		personaje.moverArriba(entorno);
+		personaje.moverIzquierda(entorno);
 		
 
 	}
